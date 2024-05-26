@@ -1,0 +1,49 @@
+{
+  "name": "motion-cmdk",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "cp ../README.md . && pnpm build",
+    "postpublish": "rm README.md",
+    "build": "tsup src",
+    "dev": "tsup src --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "1.0.5",
+    "@radix-ui/react-id": "^1.0.1",
+    "@radix-ui/react-primitive": "1.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.15"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gptsmotion/cmdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gptsmotion/cmdk/issues"
+  },
+  "homepage": "https://github.com/gptsmotion/cmdk#readme",
+  "author": {
+    "name": "GPTs Motion",
+    "url": "https://github.com/pacocoursey"
+  }
+}
