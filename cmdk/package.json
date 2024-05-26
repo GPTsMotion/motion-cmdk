@@ -36,12 +36,12 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gptsmotion/cmdk.git"
+    "url": "git+https://github.com/gptsmotion/motion-cmdk.git"
   },
   "bugs": {
-    "url": "https://github.com/gptsmotion/cmdk/issues"
+    "url": "https://github.com/gptsmotion/motion-cmdk/issues"
   },
-  "homepage": "https://github.com/gptsmotion/cmdk#readme",
+  "homepage": "https://github.com/gptsmotion/motion-cmdk#readme",
   "author": {
     "name": "GPTs Motion",
     "url": "https://github.com/pacocoursey"
