@@ -1,4 +1,4 @@
-import { Command } from 'cmdk'
+import { Command } from 'motion-cmdk'
 import * as React from 'react'
 
 const Page = () => {

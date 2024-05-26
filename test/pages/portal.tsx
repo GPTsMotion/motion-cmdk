@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Command } from 'cmdk'
+import { Command } from 'motion-cmdk'
 import * as Portal from '@radix-ui/react-portal'
 
 const Page = () => {

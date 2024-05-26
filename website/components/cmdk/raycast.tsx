@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTheme } from 'next-themes'
 import * as Popover from '@radix-ui/react-popover'
-import { Command } from 'cmdk'
+import { Command } from 'motion-cmdk'
 import { Logo, LinearIcon, FigmaIcon, SlackIcon, YouTubeIcon, RaycastIcon } from 'components'
 
 export function RaycastCMDK() {

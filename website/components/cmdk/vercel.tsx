@@ -1,5 +1,5 @@
 import React from 'react'
-import { Command } from 'cmdk'
+import { Command } from 'motion-cmdk'
 
 export function VercelCMDK() {
   const ref = React.useRef<HTMLDivElement | null>(null)

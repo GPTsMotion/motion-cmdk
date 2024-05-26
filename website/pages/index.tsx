@@ -260,7 +260,7 @@ function ThemeSwitcher() {
 //////////////////////////////////////////////////////////////////
 
 function Codeblock() {
-  const code = `import { Command } from 'cmdk';
+  const code = `import { Command } from 'motion-cmdk';
 
 <Command.Dialog open={open} onOpenChange={setOpen}>
   <Command.Input />

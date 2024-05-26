@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-popover": "^0.1.6",
-    "cmdk": "workspace:*",
+    "motion-cmdk": "workspace:*",
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^6.5.1",
     "next": "13.5.1",
