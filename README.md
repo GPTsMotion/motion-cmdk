@@ -1,6 +1,5 @@
-
-
 # motion-cmdk [![cmdk minzip package size](https://img.shields.io/bundlephobia/minzip/motion-cmdk)](https://www.npmjs.com/package/motion-cmdk?activeTab=code) [![cmdk package version](https://img.shields.io/npm/v/motion-cmdk.svg?colorB=green)](https://www.npmjs.com/package/motion-cmdk)
+
 > Based on a modified version of [cmdk](https://github.com/pacocoursey/cmdk)
 
 Motion-cmdk is a command menu React component that can also function as an accessible combobox. You render items, and it automatically filters and sorts them. Motion-cmdk supports a fully composable API, allowing you to wrap items in other components or use static JSX.## Install
@@ -15,8 +14,8 @@ pnpm install motion-cmdk
 import { Command } from 'motion-cmdk'
 
 const CommandMenu = () => {
-    return (
-        <Command label="Command Menu">
+  return (
+    <Command label="Command Menu">
       <Command.Input />
       <Command.List>
         <Command.Empty>No results found.</Command.Empty>
@@ -31,7 +30,7 @@ const CommandMenu = () => {
         <Command.Item>Apple</Command.Item>
       </Command.List>
     </Command>
-    )
+  )
 }
 ```
 
@@ -41,23 +40,23 @@ Or in a dialog:
 import { Command } from 'motion-cmdk'
 
 const CommandMenu = () => {
-    const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
-    // Toggle the menu when Motion-cmdk is pressed
-    React.useEffect(() => {
-        const down = (e) => {
-            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault()
-                setOpen((open) => !open)
-            }
-        }
+  // Toggle the menu when Motion-cmdk is pressed
+  React.useEffect(() => {
+    const down = (e) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open) => !open)
+      }
+    }
 
-        document.addEventListener('keydown', down)
-        return () => document.removeEventListener('keydown', down)
-    }, [])
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
+  }, [])
 
-    return (
-        <Command.Dialog open={open} onOpenChange={setOpen} label="Global Command Menu">
+  return (
+    <Command.Dialog open={open} onOpenChange={setOpen} label="Global Command Menu">
       <Command.Input />
       <Command.List>
         <Command.Empty>No results found.</Command.Empty>
@@ -72,7 +71,7 @@ const CommandMenu = () => {
         <Command.Item>Apple</Command.Item>
       </Command.List>
     </Command.Dialog>
-    )
+  )
 }
 ```
 
@@ -92,7 +91,7 @@ Render this to show the command menu inline, or use [Dialog](#dialog-cmdk-dialog
 const [value, setValue] = React.useState('apple')
 
 return (
-    <Command value={value} onValueChange={setValue}>
+  <Command value={value} onValueChange={setValue}>
     <Command.Input />
     <Command.List>
       <Command.Item>Orange</Command.Item>
@@ -106,10 +105,10 @@ You can provide a custom `filter` function that is called to rank each item. Not
 
 ```tsx
 <Command
-    filter={(value, search) => {
-        if (value.includes(search)) return 1
-        return 0
-    }}
+  filter={(value, search) => {
+    if (value.includes(search)) return 1
+    return 0
+  }}
 />
 ```
 
@@ -117,11 +116,11 @@ A third argument, `keywords`, can also be provided to the filter function. Keywo
 
 ```tsx
 <Command
-    filter={(value, search, keywords) => {
-        const extendValue = value + ' ' + keywords.join(' ')
-        if (extendValue.includes(search)) return 1
-        return 0
-    }}
+  filter={(value, search, keywords) => {
+    const extendValue = value + ' ' + keywords.join(' ')
+    if (extendValue.includes(search)) return 1
+    return 0
+  }}
 />
 ```
 
@@ -131,11 +130,11 @@ Or disable filtering and sorting entirely:
 <Command shouldFilter={false}>
   <Command.List>
     {filteredItems.map((item) => {
-        return (
-            <Command.Item key={item} value={item}>
+      return (
+        <Command.Item key={item} value={item}>
           {item}
         </Command.Item>
-        )
+      )
     })}
   </Command.List>
 </Command>
@@ -155,7 +154,7 @@ Props are forwarded to [Command](#command-cmdk-root). Composes Radix UI's Dialog
 const [open, setOpen] = React.useState(false)
 
 return (
-    <Command.Dialog open={open} onOpenChange={setOpen}>
+  <Command.Dialog open={open} onOpenChange={setOpen}>
     ...
   </Command.Dialog>
 )
@@ -167,7 +166,7 @@ You can provide a `container` prop that accepts an HTML element that is forwarde
 const containerElement = React.useRef(null)
 
 return (
-    <>
+  <>
     <Command.Dialog container={containerElement.current} />
     <div ref={containerElement} />
   </>
@@ -190,10 +189,10 @@ Contains items and groups. Animate height using the `--cmdk-list-height` CSS var
 
 ```css
 [cmdk-list] {
-    min-height: 300px;
-    height: var(--cmdk-list-height);
-    max-height: 500px;
-    transition: height 100ms ease;
+  min-height: 300px;
+  height: var(--cmdk-list-height);
+  max-height: 500px;
+  transition: height 100ms ease;
 }
 ```
 
@@ -201,8 +200,8 @@ To scroll item into view earlier near the edges of the viewport, use scroll-padd
 
 ```css
 [cmdk-list] {
-    scroll-padding-block-start: 8px;
-    scroll-padding-block-end: 8px;
+  scroll-padding-block-start: 8px;
+  scroll-padding-block-end: 8px;
 }
 ```
 
@@ -212,8 +211,8 @@ Item that becomes active on pointer enter. You should provide a unique `value` f
 
 ```tsx
 <Command.Item
-    onSelect={(value) => console.log('Selected', value)}
-    // Value is implicity "apple" because of the provided text content
+  onSelect={(value) => console.log('Selected', value)}
+  // Value is implicity "apple" because of the provided text content
 >
   Apple
 </Command.Item>
@@ -227,8 +226,8 @@ You can also provide a `keywords` prop to help with filtering. Keywords are trim
 
 ```tsx
 <Command.Item
-    onSelect={(value) => console.log('Selected', value)}
-    // Value is implicity "apple" because of the provided text content
+  onSelect={(value) => console.log('Selected', value)}
+  // Value is implicity "apple" because of the provided text content
 >
   Apple
 </Command.Item>
@@ -295,38 +294,38 @@ const [pages, setPages] = React.useState([])
 const page = pages[pages.length - 1]
 
 return (
-    <Command
-        onKeyDown={(e) => {
-            // Escape goes to previous page
-            // Backspace goes to previous page when search is empty
-            if (e.key === 'Escape' || (e.key === 'Backspace' && !search)) {
-                e.preventDefault()
-                setPages((pages) => pages.slice(0, -1))
-            }
-        }}
-    >
+  <Command
+    onKeyDown={(e) => {
+      // Escape goes to previous page
+      // Backspace goes to previous page when search is empty
+      if (e.key === 'Escape' || (e.key === 'Backspace' && !search)) {
+        e.preventDefault()
+        setPages((pages) => pages.slice(0, -1))
+      }
+    }}
+  >
     <Command.Input value={search} onValueChange={setSearch} />
     <Command.List>
       {!page && (
-          <>
+        <>
           <Command.Item onSelect={() => setPages([...pages, 'projects'])}>Search projects…</Command.Item>
           <Command.Item onSelect={() => setPages([...pages, 'teams'])}>Join a team…</Command.Item>
         </>
       )}
 
-        {page === 'projects' && (
-            <>
+      {page === 'projects' && (
+        <>
           <Command.Item>Project A</Command.Item>
           <Command.Item>Project B</Command.Item>
         </>
-        )}
+      )}
 
-        {page === 'teams' && (
-            <>
+      {page === 'teams' && (
+        <>
           <Command.Item>Team 1</Command.Item>
           <Command.Item>Team 2</Command.Item>
         </>
-        )}
+      )}
     </Command.List>
   </Command>
 )
@@ -338,13 +337,13 @@ If your items have nested sub-items that you only want to reveal when searching,
 
 ```tsx
 const SubItem = (props) => {
-    const search = useCommandState((state) => state.search)
-    if (!search) return null
-    return <Command.Item {...props} />
+  const search = useCommandState((state) => state.search)
+  if (!search) return null
+  return <Command.Item {...props} />
 }
 
 return (
-    <Command>
+  <Command>
     <Command.Input />
     <Command.List>
       <Command.Item>Change theme…</Command.Item>
@@ -364,28 +363,28 @@ const [loading, setLoading] = React.useState(false)
 const [items, setItems] = React.useState([])
 
 React.useEffect(() => {
-    async function getItems() {
-        setLoading(true)
-        const res = await api.get('/dictionary')
-        setItems(res)
-        setLoading(false)
-    }
+  async function getItems() {
+    setLoading(true)
+    const res = await api.get('/dictionary')
+    setItems(res)
+    setLoading(false)
+  }
 
-    getItems()
+  getItems()
 }, [])
 
 return (
-    <Command>
+  <Command>
     <Command.Input />
     <Command.List>
       {loading && <Command.Loading>Fetching words…</Command.Loading>}
-        {items.map((item) => {
-            return (
-                <Command.Item key={`word-${item}`} value={item}>
+      {items.map((item) => {
+        return (
+          <Command.Item key={`word-${item}`} value={item}>
             {item}
           </Command.Item>
-            )
-        })}
+        )
+      })}
     </Command.List>
   </Command>
 )
@@ -405,7 +404,7 @@ Render `Command` inside of the popover content:
 import * as Popover from '@radix-ui/react-popover'
 
 return (
-    <Popover.Root>
+  <Popover.Root>
     <Popover.Trigger>Toggle popover</Popover.Trigger>
 
     <Popover.Content>
@@ -452,7 +451,7 @@ You can find global stylesheets to drop in as a starting point for styling. See 
 
 ## History
 
-This was originally written in 2019 by Paco ([@pacocoursey](https://twitter.com/pacocoursey)) to explore the possibility of a composable combobox API. It was later used for the Vercel command menu and autocomplete by Rauno ([@raunofreiberg](https://twitter.com/raunofreiberg)) in 2020. It was independently rewritten in 2022 with a simpler and more efficient approach, with ideas and assistance from Shu ([@shuding_](https://twitter.com/shuding_)).
+This was originally written in 2019 by Paco ([@pacocoursey](https://twitter.com/pacocoursey)) to explore the possibility of a composable combobox API. It was later used for the Vercel command menu and autocomplete by Rauno ([@raunofreiberg](https://twitter.com/raunofreiberg)) in 2020. It was independently rewritten in 2022 with a simpler and more efficient approach, with ideas and assistance from Shu ([@shuding\_](https://twitter.com/shuding_)).
 
 The [use-descendants](https://github.com/pacocoursey/use-descendants) library was extracted from the 2019 version.
 
